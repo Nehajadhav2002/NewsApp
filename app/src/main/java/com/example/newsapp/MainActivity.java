@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.material.progressindicator.LinearProgressIndicator;
 import com.kwabenaberko.newsapilib.NewsApiClient;
@@ -20,12 +21,13 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-
+    private long pressedTime;
     RecyclerView recyclerView;
     List<Article> articleList = new ArrayList<>();
     NewsRecyclerAdapter adapter;
     LinearProgressIndicator progressIndicator;
     Button btn1,btn2,btn3,btn4,btn5,btn6,btn7;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn7.setOnClickListener(this);
 
         setupRecyclerView();
-        getNews();
+        getNews("GENERAL");
     }
 
     void setupRecyclerView()
@@ -69,13 +71,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             progressIndicator.setVisibility(View.INVISIBLE);
     }
 
-    void getNews()
+    void getNews(String category)
     {
         changeInProgress(true);
         NewsApiClient newsApiClient= new NewsApiClient("20cfc03de34949a38f1030f476a3c6d1");
         newsApiClient.getTopHeadlines(
                 new TopHeadlinesRequest.Builder()
                         .language("en")
+                        .category(category)
                         .build(),
                 new NewsApiClient.ArticlesResponseCallback() {
                     @Override
@@ -98,6 +101,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
+        Button btn=(Button) view;
+        String category =btn.getText().toString();
+        getNews(category);
+    }
 
+    @Override
+    public void onBackPressed() {
+
+        if (pressedTime + 2000 > System.currentTimeMillis()) {
+            super.onBackPressed();
+            onDestroy();
+        } else {
+            Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT).show();
+        }
+        pressedTime = System.currentTimeMillis();
     }
 }

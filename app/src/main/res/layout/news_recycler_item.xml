@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="12dp"
+    app:cardCornerRadius="10dp"
     android:elevation="4dp">
 
     <LinearLayout
@@ -17,6 +18,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:scaleType="centerCrop"
+            android:layout_marginLeft="5dp"
             android:id="@+id/article_image_view"/>
 
         <LinearLayout
@@ -26,25 +28,25 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/article_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
+                android:layout_marginBottom="8dp"
                 android:maxLines="3"
                 android:text="this is title"
-                android:layout_marginBottom="8dp"
-                android:id="@+id/article_title"
-                />
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:fontFamily="serif" />
 
             <TextView
+                android:id="@+id/article_source"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:text="source"
                 android:layout_marginBottom="8dp"
-                android:id="@+id/article_source"
-                />
+                android:text="source"
+                android:textSize="12sp"
+                app:fontFamily="sans-serif" />
 
         </LinearLayout>
     </LinearLayout>

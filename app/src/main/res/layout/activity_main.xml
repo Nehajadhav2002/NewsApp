@@ -11,10 +11,12 @@
         android:id="@+id/app_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
         android:gravity="center"
         android:text="News App"
-        android:textColor="@color/ny_primary"
+        app:fontFamily="serif"
+        android:textColor="@color/teal_700"
         android:textSize="30sp" />
 
     <HorizontalScrollView

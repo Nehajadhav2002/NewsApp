@@ -2,12 +2,12 @@
     <!-- Base application theme. -->
     <style name="Theme.NewsApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/ny_primary</item>
-        <item name="colorPrimaryVariant">@color/ny_primary</item>
+        <item name="colorPrimary">#FF018786</item>
+        <item name="colorPrimaryVariant">#FF018786</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/ny_secondary</item>
-        <item name="colorSecondaryVariant">@color/ny_secondary</item>
+        <item name="colorSecondary">@color/black</item>
+        <item name="colorSecondaryVariant">@color/black</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
